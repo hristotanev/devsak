@@ -11,7 +11,9 @@
 </div>
 
 # Installation
-Simply clone this repository to your computer and within this directory run `./install.sh` in your terminal. All the scripts under the `scripts` directory should now be successfully installed on your machine! Enjoy!
+To install `devsak`, simply run the following command in your terminal:
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/hristotanev/devsak/main/install.sh)"`
 
 # Tools and support
 <table>
@@ -28,4 +30,4 @@ Simply clone this repository to your computer and within this directory run `./i
 </table>
 
 # Uninstall
-To uninstall the scripts, navigate to this directory and run `./uninstall.sh` in your terminal. It's that easy 🙂.
+To uninstall `devsak`, just run `uninstall_devsak` from the command-line. It's that easy 🙂.
