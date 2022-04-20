@@ -8,7 +8,7 @@ function usage {
   echo
   echo -e "  -l\t\t\t list the names of all available tools"
   echo -e "  -a\t\t\t install all available tools"
-  echo -e "  -i <[tool names...]>   install tools specified by their comma separated name"
+  echo -e "  -i <[tool names,...]>  install tools specified by their comma separated names"
   echo -e "  -h\t\t\t display this help and exit"
   exit
 }
