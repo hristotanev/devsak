@@ -4,7 +4,7 @@ HASH=$1
 FILE=$2
 
 function usage {
-  echo "Usage: vhash [HASH] [FILE]"
+  echo "Usage: cheksum [HASH] [FILE]"
   echo "Verify SHA256 hash matches for downloaded FILE."
   echo
   echo -e "  -h\t display this help and exit"
