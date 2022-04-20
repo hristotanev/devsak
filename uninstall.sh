@@ -7,6 +7,7 @@ for script_path in $HOME/.config/devsak/scripts/*.sh; do
   fi
 done
 
+sudo rm /usr/local/bin/devsak
 sudo rm /usr/local/bin/uninstall_devsak
 rm -rf $HOME/.config/devsak
 
