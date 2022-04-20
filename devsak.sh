@@ -57,6 +57,11 @@ function install_specific_scripts {
   exit
 }
 
+if [[ $# == 0 ]]; then
+  usage
+  exit
+fi
+
 while getopts "l,a,s:h" flag; do
   case $flag in
     l) list_all_available_scripts; exit;;
