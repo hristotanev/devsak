@@ -23,6 +23,21 @@ function install_script_if_missing {
   exit
 }
 
+function list_all_available_scripts {
+  echo "Available scripts:"
+  echo "=================="
+
+  for script_path in $HOME/.config/devsak/scripts/*.sh; do
+    script_name=$(basename $script_path | awk -F'.' '{ print $1 }')
+    echo $script_name
+  done
+
+  echo
+  echo "For summary of each, please refer to the README."
+
+  exit
+}
+
 function install_all_scripts {
   for script_path in $HOME/.config/devsak/scripts/*.sh; do
     script_name=$(basename $script_path | awk -F'.' '{ print $1 }')
@@ -41,8 +56,9 @@ function install_specific_scripts {
   exit
 }
 
-while getopts "a,s:h" flag; do
+while getopts "l,a,s:h" flag; do
   case $flag in
+    l) list_all_available_scripts; exit;;
     a) install_all_scripts; exit;;
     s) install_specific_scripts; exit;;
     h) usage; exit;;
