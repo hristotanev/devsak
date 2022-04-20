@@ -1,36 +1,36 @@
 #!/bin/bash
 
 function usage {
-  echo "Usage: devsak [options] <[script names,...]>"
-  echo "Command-line orchestrator for installing different scripts."
+  echo "Usage: devsak [options] <[tool names,...]>"
+  echo "Command-line orchestrator for installing different tools."
   echo
   echo "Some of the available options include:"
   echo
-  echo -e "  -l\t\t\t list the names of all available scripts"
-  echo -e "  -a\t\t\t install all available scripts"
-  echo -e "  -s <[script names...]> install scripts specified by their comma separated name"
+  echo -e "  -l\t\t\t list the names of all available tools"
+  echo -e "  -a\t\t\t install all available tools"
+  echo -e "  -i <[tool names...]>   install tools specified by their comma separated name"
   echo -e "  -h\t\t\t display this help and exit"
   exit
 }
 
-function install_script_if_missing {
-  script_name=$1
-  if [[ $(ls /usr/local/bin/ | grep -o -w $script_name) == "" ]]; then
-    echo "Installing '$script_name' script..."
-    sudo ln -s $HOME/.config/devsak/scripts/$script_name.sh /usr/local/bin/$script_name
+function install_tool_if_missing {
+  tool_name=$1
+  if [[ $(ls /usr/local/bin/ | grep -o -w $tool_name) == "" ]]; then
+    echo "Installing '$tool_name' tool..."
+    sudo ln -s $HOME/.config/devsak/tools/$tool_name.sh /usr/local/bin/$tool_name
   else
-    echo "'$script_name' already installed. skipping."
+    echo "'$tool_name' already installed. skipping."
   fi
   exit
 }
 
-function list_all_available_scripts {
-  echo "Available scripts:"
+function list_all_available_tools {
+  echo "Available tools:"
   echo "=================="
 
-  for script_path in $HOME/.config/devsak/scripts/*.sh; do
-    script_name=$(basename $script_path | awk -F'.' '{ print $1 }')
-    echo $script_name
+  for tool_path in $HOME/.config/devsak/tools/*.sh; do
+    tool_name=$(basename $tool_path | awk -F'.' '{ print $1 }')
+    echo $tool_name
   done
 
   echo
@@ -39,19 +39,19 @@ function list_all_available_scripts {
   exit
 }
 
-function install_all_scripts {
-  for script_path in $HOME/.config/devsak/scripts/*.sh; do
-    script_name=$(basename $script_path | awk -F'.' '{ print $1 }')
-    install_script_if_missing $script_name
+function install_all_tools {
+  for tool_path in $HOME/.config/devsak/tools/*.sh; do
+    tool_name=$(basename $tool_path | awk -F'.' '{ print $1 }')
+    install_tool_if_missing $tool_name
   done
 
   exit
 }
 
-function install_specific_scripts {
-  scripts=$(echo "$OPTARG" | tr ',' ' ')
-  for script_name in $scripts; do
-    install_script_if_missing $script_name
+function install_specific_tools {
+  tools=$(echo "$OPTARG" | tr ',' ' ')
+  for tool_name in $tools; do
+    install_tool_if_missing $tool_name
   done
 
   exit
@@ -62,11 +62,11 @@ if [[ $# == 0 ]]; then
   exit
 fi
 
-while getopts "l,a,s:h" flag; do
+while getopts "l,a,i:h" flag; do
   case $flag in
-    l) list_all_available_scripts; exit;;
-    a) install_all_scripts; exit;;
-    s) install_specific_scripts; exit;;
+    l) list_all_available_tools; exit;;
+    a) install_all_tools; exit;;
+    i) install_specific_tools; exit;;
     h) usage; exit;;
     ?) echo "Run '-h' for more info."; exit;;
   esac

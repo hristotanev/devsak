@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for script_path in $HOME/.config/devsak/scripts/*.sh; do
-  script_name=$(basename $script_path | awk -F'.' '{ print $1 }')
-  if [[ $(ls /usr/local/bin | grep -o -w "$script_name") != "" ]]; then
-    sudo rm /usr/local/bin/$script_name
+for tool_path in $HOME/.config/devsak/tools/*.sh; do
+  tool_name=$(basename $tool_path | awk -F'.' '{ print $1 }')
+  if [[ $(ls /usr/local/bin | grep -o -w "$tool_name") != "" ]]; then
+    sudo rm /usr/local/bin/$tool_name
   fi
 done
 
