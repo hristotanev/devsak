@@ -10,12 +10,12 @@
   ![Work In Progress](https://img.shields.io/badge/Work%20In%20Progress-orange?style=for-the-badge)
 </div>
 
-# Installation
+## Installation
 To install `devsak`, simply run the following command in your terminal:
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/hristotanev/devsak/main/install.sh)"`
 
-# Tools and support
+## Tools and support
 <table>
   <tr>
     <th>Name</th>
@@ -29,5 +29,5 @@ To install `devsak`, simply run the following command in your terminal:
   </tr>
 </table>
 
-# Uninstall
+## Uninstalling devsak
 To uninstall `devsak`, just run `uninstall_devsak` from the command-line. It's that easy 🙂.
