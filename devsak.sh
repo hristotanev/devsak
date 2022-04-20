@@ -6,8 +6,9 @@ function usage {
   echo
   echo "Some of the available options include:"
   echo
+  echo -e "  -l\t\t\t list the names of all available scripts"
   echo -e "  -a\t\t\t install all available scripts"
-  echo -e "  -s <[script names...]> install scripts specified by their name, comma separated (list all scripts for more info)"
+  echo -e "  -s <[script names...]> install scripts specified by their comma separated name"
   echo -e "  -h\t\t\t display this help and exit"
   exit
 }
