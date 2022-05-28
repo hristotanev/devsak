@@ -10,7 +10,13 @@
   ![Work In Progress](https://img.shields.io/badge/Work%20In%20Progress-orange?style=for-the-badge)
 </div>
 
-## Basic Installation
+## Installation
+### Arch-based distros
+This collection of tools has been packaged inside the AUR and can be easily installed by using your favourite AUR helper (in my case this is [paru](https://github.com/morganamilo/paru)) by running the following command from your terminal:
+
+`paru -S devsak-git`
+
+### Other distros
 To install `devsak`, simply run the following command in your terminal:
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/hristotanev/devsak/main/scripts/install.sh)"`
@@ -45,3 +51,9 @@ Some of the available options include:
 
 ## Uninstalling devsak
 To uninstall `devsak`, just run `uninstall_devsak` from the command-line. It's that easy 🙂.
+
+## Next steps
+- [ ] continue adding new tools
+- [ ] add a build pipeline for automatic tagging
+- [ ] add an automatic package versioning inside AUR for automatic system updates
+- [ ] add support for more Linux distros and Mac OS (there will never be any support for Windows 😛)
