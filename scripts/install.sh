@@ -1,12 +1,8 @@
 #!/bin/bash
 
-if [[ -e $HOME/.config/devsak ]]; then
-  echo "'devsak' has already been installed. skipping."
-  exit
+if [[ ! -e /opt/devsak-git ]]; then
+  sudo git clone https://github.com/hristotanev/devsak.git /opt/devsak-git
 fi
 
-git clone https://github.com/hristotanev/devsak.git $HOME/.config/devsak
-sudo ln -s $HOME/.config/devsak/scripts/devsak.sh /usr/local/bin/devsak
-sudo ln -s $HOME/.config/devsak/scripts/uninstall.sh /usr/local/bin/uninstall_devsak
-
-echo "'devsak' installed successfully. don't forget to restart your terminal."
+sudo ln -s /opt/devsak-git/scripts/devsak.sh /usr/bin/devsak
+sudo ln -s /opt/devsak-git/scripts/uninstall.sh /usr/bin/uninstall_devsak
