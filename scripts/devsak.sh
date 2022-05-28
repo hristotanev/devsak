@@ -1,23 +1,23 @@
 #!/bin/bash
 
 function usage {
-  echo "Usage: devsak [options] <[tool names,...]>"
+  echo "Usage: devsak [options] [tool names,...]"
   echo "Command-line orchestrator for installing different tools."
   echo
   echo "Some of the available options include:"
   echo
   echo -e "  -l\t\t\t list the names of all available tools"
   echo -e "  -a\t\t\t install all available tools"
-  echo -e "  -i <[tool names,...]>  install tools specified by their comma separated names"
+  echo -e "  -i tool names,... \t install tools specified by their comma separated names"
   echo -e "  -h\t\t\t display this help and exit"
   exit
 }
 
 function install_tool_if_missing {
   tool_name=$1
-  if [[ $(ls /usr/local/bin/ | grep -o -w $tool_name) == "" ]]; then
+  if [[ $(ls /usr/bin/ | grep -o -w $tool_name) == "" ]]; then
     echo "Installing '$tool_name' tool..."
-    sudo ln -s $HOME/.config/devsak/tools/$tool_name.sh /usr/local/bin/$tool_name
+    sudo ln -s /opt/devsak-git/tools/$tool_name.sh /usr/bin/$tool_name
   else
     echo "'$tool_name' already installed. skipping."
   fi
@@ -28,7 +28,7 @@ function list_all_available_tools {
   echo "Available tools:"
   echo "=================="
 
-  for tool_path in $HOME/.config/devsak/tools/*.sh; do
+  for tool_path in /opt/devsak-git/tools/*.sh; do
     tool_name=$(basename $tool_path | awk -F'.' '{ print $1 }')
     echo $tool_name
   done
@@ -40,7 +40,7 @@ function list_all_available_tools {
 }
 
 function install_all_tools {
-  for tool_path in $HOME/.config/devsak/tools/*.sh; do
+  for tool_path in /opt/devsak-git/tools/*.sh; do
     tool_name=$(basename $tool_path | awk -F'.' '{ print $1 }')
     install_tool_if_missing $tool_name
   done
