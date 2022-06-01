@@ -14,12 +14,16 @@
 ### Arch-based distros
 This collection of tools has been packaged inside the AUR and can be easily installed by using your favourite AUR helper (in my case this is [paru](https://github.com/morganamilo/paru)) by running the following command from your terminal:
 
-`paru -S devsak-git`
+```bashl
+paru -S devsak-git
+```
 
 ### Other distros
 To install `devsak`, simply run the following command in your terminal:
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/hristotanev/devsak/main/scripts/install.sh)"`
+```bashl
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/hristotanev/devsak/main/scripts/install.sh)"
+```
 
 ## Usage
 After successful installation of `devsak`, below is some more information on how it can be used (this is an output of `devsak -h`):
